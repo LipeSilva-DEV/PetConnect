@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS animais(
 	situacao_animal TEXT NOT NULL, 
 	status_animal ENUM('DISPONIVEL', 'EM_PROCESSO', 'ADOTADO') DEFAULT 'DISPONIVEL', 
 	criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    url_imagem VARCHAR(255) NOT NULL
+    url_imagem VARCHAR(255) NOT NULL  
 
 ); 
 

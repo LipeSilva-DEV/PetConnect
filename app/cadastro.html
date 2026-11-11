@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetConnect - Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <!-- Substitua pelo caminho real do logo -->
+           <img src="./IMG/PetConnect (1).png" alt="Cabeçalho"> 
+        </div>
+        
+        <div class="header-center">
+            <div class="search-bar">
+                <input type="text" placeholder="para o seu pet, procure aqui">
+                <span class="search-icon">🔍</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Quero Adotar</a></li>
+                    <li><a href="#">Quero Divulgar</a></li>
+                    <li><a href="#">Nossos Produtos</a></li>
+                    <li><a href="#">PetConnect</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="header-icons">
+            <span class="icon">🤍</span>
+            <span class="icon">🛒</span>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <strong>Home</strong> / <strong>Cadastro</strong>
+    </div>
+
+    <main class="main-content">
+
+        <section class="banner-section">
+            <div class="banner-content">
+                <!-- Imagem ilustrativa com os pets -->
+                <img src="./IMG/Captura de tela 2026-10-30 105920.png" alt="Animais" class="banner-img">
+                            
+            </div>
+        </section>
+
+        <!-- Formulário Direito -->
+        <section class="form-section">
+            <h2>Faça seu Cadastro</h2>
+            
+            <form action="#">
+                <div class="input-group full-width">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome">
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email">
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="confirma-email">Confirmação do E-mail*</label>
+                    <input type="email" id="confirma-email" name="confirma-email">
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone" name="telefone" placeholder="()">
+                </div>
+
+                <div class="row">
+                    <div class="input-group half-width">
+                        <label for="cidade">Cidade</label>
+                        <select id="cidade" name="cidade">
+                            <option value="">Selecione sua Cidade</option>
+                        </select>
+                    </div>
+                    <div class="input-group half-width">
+                        <label for="estado">Estado</label>
+                        <select id="estado" name="estado">
+                            <option value="">Selecione seu Estado</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-group half-width">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha">
+                    </div>
+                    <div class="input-group half-width">
+                        <label for="confirma-senha">Confirmação de Senha*</label>
+                        <input type="password" id="confirma-senha" name="confirma-senha">
+                    </div>
+                </div>
+
+                <div class="login-prompt">
+                    Você já tem uma conta? <a href="#">Fazer Login</a>
+                </div>
+
+                <button type="submit" class="submit-btn">Cadastrar</button>
+            </form>
+        </section>
+    </main>
+<!-- ==================== RODAPÉ / FOOTER ==================== -->
+  <footer class="rodape-principal">
+    <div class="container-rodape">
+      <!-- Logo do Rodapé -->
+      <div class="coluna-logo-rodape">
+        <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
+      </div>
+
+      <!-- Coluna Quero Adotar -->
+      <div class="coluna-rodape">
+        <h4 class="titulo-coluna-rodape">Quero Adotar</h4>
+        <ul>
+          <li><a href="#">Cães</a></li>
+          <li><a href="#">Gatos</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna Produtos -->
+      <div class="coluna-rodape">
+        <h4 class="titulo-coluna-rodape">Produtos</h4>
+        <ul>
+          <li><a href="#">Cães</a></li>
+          <li><a href="#">Gatos</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna Institucional -->
+      <div class="coluna-rodape">
+        <h4 class="titulo-coluna-rodape">Institucional</h4>
+        <ul>
+          <li><a href="#">PetConnect</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna Atendimento -->
+      <div class="coluna-rodape">
+        <h4 class="titulo-coluna-rodape">Atendimento</h4>
+        <ul>
+          <li><a href="#">Meu Perfil</a></li>
+          <li><a href="#">Segurança e Privacidade</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna Redes Sociais -->
+      <div class="coluna-rodape">
+        <h4 class="titulo-coluna-rodape">Redes Sociais</h4>
+        <div class="icones-redes-sociais">
+        
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
