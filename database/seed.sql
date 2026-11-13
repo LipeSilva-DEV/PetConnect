@@ -8,16 +8,16 @@ USE PetConnect;
 INSERT INTO usuarios
 (id_usuario, nome, email, senha, data_nascimento, telefone, cidade, estado)
 VALUES
-(1, 'Ana Souza', 'ana.souza@email.com', 'hash_demo_001', '1996-02-14', '41999991001', 'Curitiba', 'PR'),
-(2, 'Bruno Lima', 'bruno.lima@email.com', 'hash_demo_002', '1994-05-20', '48999991002', 'Florianopolis', 'SC'),
-(3, 'Carla Mendes', 'carla.mendes@email.com', 'hash_demo_003', '1998-08-11', '51999991003', 'Porto Alegre', 'RS'),
-(4, 'Diego Alves', 'diego.alves@email.com', 'hash_demo_004', '1995-03-25', '19999991004', 'Campinas', 'SP'),
-(5, 'Elisa Rocha', 'elisa.rocha@email.com', 'hash_demo_005', '1997-11-09', '21999991005', 'Rio de Janeiro', 'RJ'),
-(6, 'Fabio Costa', 'fabio.costa@email.com', 'hash_demo_006', '1993-07-16', '31999991006', 'Belo Horizonte', 'MG'),
-(7, 'Gabriela Nunes', 'gabriela.nunes@email.com', 'hash_demo_007', '1999-01-30', '27999991007', 'Vitoria', 'ES'),
-(8, 'Hugo Martins', 'hugo.martins@email.com', 'hash_demo_008', '1992-09-05', '62999991008', 'Goiania', 'GO'),
-(9, 'Isabela Freitas', 'isabela.freitas@email.com', 'hash_demo_009', '2000-04-18', '71999991009', 'Salvador', 'BA'),
-(10, 'Joao Pereira', 'joao.pereira@email.com', 'hash_demo_010', '1991-12-22', '81999991010', 'Recife', 'PE');
+(1, 'Ana Souza', 'ana.souza@email.com', '012345678', '1996-02-14', '41999991001', 'Curitiba', 'PR'),
+(2, 'Bruno Lima', 'bruno.lima@email.com', '012345678', '1994-05-20', '48999991002', 'Florianopolis', 'SC'),
+(3, 'Carla Mendes', 'carla.mendes@email.com', '012345678', '1998-08-11', '51999991003', 'Porto Alegre', 'RS'),
+(4, 'Diego Alves', 'diego.alves@email.com', '012345678', '1995-03-25', '19999991004', 'Campinas', 'SP'),
+(5, 'Elisa Rocha', 'elisa.rocha@email.com', '012345678', '1997-11-09', '21999991005', 'Rio de Janeiro', 'RJ'),
+(6, 'Fabio Costa', 'fabio.costa@email.com', '012345678', '1993-07-16', '31999991006', 'Belo Horizonte', 'MG'),
+(7, 'Gabriela Nunes', 'gabriela.nunes@email.com', '012345678', '1999-01-30', '27999991007', 'Vitoria', 'ES'),
+(8, 'Hugo Martins', 'hugo.martins@email.com', '012345678', '1992-09-05', '62999991008', 'Goiania', 'GO'),
+(9, 'Isabela Freitas', 'isabela.freitas@email.com', '012345678', '2000-04-18', '71999991009', 'Salvador', 'BA'),
+(10, 'Joao Pereira', 'joao.pereira@email.com', '012345678', '1991-12-22', '81999991010', 'Recife', 'PE');
 
 
 -- =========================================
