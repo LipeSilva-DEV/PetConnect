@@ -1,6 +1,5 @@
 <?php
-
-declare(strict_types=1);
+declare(strict_types=1); 
 
 $databaseStatus = 'Conectado';
 
@@ -9,26 +8,251 @@ try {
     $pdo->query('SELECT 1');
 } catch (Throwable $exception) {
     $databaseStatus = 'Indisponível';
-}
+} 
+
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Projeto Integrador</title>
-    <style>
-        body { font-family: system-ui, sans-serif; max-width: 720px; margin: 4rem auto; padding: 0 1rem; line-height: 1.5; }
-        .status { padding: 1rem; border-radius: .5rem; background: #eef6ee; }
-        code { background: #eee; padding: .15rem .3rem; border-radius: .25rem; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetConnect - Página Inicial</title>
+  <link rel="stylesheet" href="inicio.css">
+   Banco de dados: <strong><?= htmlspecialchars($databaseStatus, ENT_QUOTES, 'UTF-8') ?></strong>
 </head>
 <body>
-    <h1>Projeto Integrador: PetConnect</h1>
-    <p>O ambiente PHP está funcionando.</p>
-    <div class="status">
-        Banco de dados: <strong><?= htmlspecialchars($databaseStatus, ENT_QUOTES, 'UTF-8') ?></strong>
+
+  <!-- ==================== CABEÇALHO / HEADER ==================== -->
+  <header class="cabecalho-principal">
+    <div class="container-cabecalho">
+      <!-- Logo PetConnect -->
+      <div class="logo-cabecalho">
+        <a href="index.php">
+          <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
+        </a>
+      </div>
+
+      <!-- Barra de Pesquisa -->
+      <div class="barra-pesquisa">
+        <input type="text" placeholder="para o seu pet, procure aqui">
+        <button class="botao-pesquisa" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+      </div>
+
+      <!-- Menu de Navegação -->
+      <nav class="menu-navegacao">
+        <a href="./adocao.html">Quero Adotar</a>
+        <a href="./divulgacao.html">Quero Divulgar</a>
+        <a href="#">Nossos Produtos</a>
+        <a href="#">PetConnect</a>
+      </nav>
+
+      <!-- Ações (Favoritos e Cadastro) -->
+      <div class="acoes-usuario">
+        <a href="#" class="icone-favorito">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        </a>
+        <a href="./cadastro.html" class="botao-cadastro">Cadastro</a>
+      </div>
     </div>
-    <p>Comece a aplicação editando <code>app/index.php</code>.</p>
+  </header>
+
+  <main class="conteudo-principal">
+
+   
+    <section class="secao-banner-principal">
+      <div class="container-banner-principal">
+        
+        <div class="imagem-banner-promocional">
+          <img src="img/ImgCãoeRação.png" >
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="secao-encontre-amigo">
+      <h2 class="titulo-secao-laranja">Encontre seu mais novo amigo aqui!!</h2>
+
+      <div class="grid-cards-animais">
+        <div class="card-animal">
+          <div class="container-foto-animal">
+            <img src="img/cachorro1.png" alt="Peaky">
+          </div>
+          <h3 class="nome-animal">PEAKY</h3>
+          <p class="local-animal"><span class="pin-local">📍</span> Rio de Janeiro</p>
+        </div>
+
+        
+        <div class="card-animal">
+          <div class="container-foto-animal">
+            <img src="img/gato2.png" alt="Dody">
+          </div>
+          <h3 class="nome-animal">DODY</h3>
+          <p class="local-animal"><span class="pin-local">📍</span> São Paulo</p>
+        </div>
+
+        
+        <div class="card-animal">
+          <div class="container-foto-animal">
+            <img src="img/cachorro3.png" alt="Kiko">
+          </div>
+          <h3 class="nome-animal">KIKO</h3>
+          <p class="local-animal"><span class="pin-local">📍</span> Santa Catarina</p>
+        </div>
+
+        
+        <div class="card-animal">
+          <div class="container-foto-animal">
+            <img src="img/gato4.png" alt="Pito">
+          </div>
+          <h3 class="nome-animal">PITO</h3>
+          <p class="local-animal"><span class="pin-local">📍</span> Curitiba</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SEÇÃO CARDS ILUSTRADOS (NUVENS/PAISAGEM) ==================== -->
+    <section class="secao-cards-paisagem">
+      <div class="container-cards-paisagem">
+        <div class="card-paisagem-item">
+          <img src="card-paisagem-1.png" alt="video">
+        </div>
+        <div class="card-paisagem-item">
+          <img src="card-paisagem-2.png" alt="video">
+        </div>
+        <div class="card-paisagem-item">
+          <img src="card-paisagem-3.png" alt="video">
+        </div>
+      </div>
+    </section>
+
+
+    <section class="secao-porque-adotar">
+      <h2 class="titulo-secao-laranja">Porque você deve adotar?</h2>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+
+      <div class="grid-motivos-adocao">
+        <div class="box-motivo">
+          <p>Animais suprem a necessidade humana de afeto e conexão física, ajudando a lidar com o isolamento, luto ou transições difíceis de vida.</p>
+        </div>
+        <div class="box-motivo">
+          <p>O contato com animais ajuda a reduzir o estresse, a ansiedade e a sensação de solidão, estimulando a liberação de endorfinas.</p>
+        </div>
+        <div class="box-motivo box-silhueta">
+          <img src="img/motivo.png" alt="motivo fotinho">
+        </div>
+      </div>
+
+      <!-- Link Encontrar Meu Novo Amigo -->
+      <div class="container-link-encontrar">
+        <a href="./adocao.html" class="link-sublinhado-laranja">Encontrar meu novo amigo</a>
+      </div>
+
+      <!-- Logo do Meio -->
+      <div class="logo-central-adocao">
+        <img src="img/PetConnectLOGO.png" alt="PetConnect - Adoção & Amor que Unem">
+      </div>
+    </section>
+
+    <!-- ==================== SEÇÃO ACOMPANHE A PETCONNECT ==================== -->
+     
+      
+    <section class="secao-acompanhe">
+      <div class="concavo">
+      <div class="faixa-curva-amarela">
+        <h2 class="titulo-acompanhe">Acompanhe a PetConnect</h2>
+
+        <div class="grid-produtos-destaque">
+          <!-- Banner Cães -->
+          <div class="card-produto-destaque">
+            <div class="imagem-produto-destaque">
+                <a href=""> 
+                    <img src="img/linhacao.png" alt="PetConnect linha para cães">
+                </a>
+            </div>
+          </div>
+
+          <!-- Banner Gatos (Centro) -->
+          <div class="card-produto-destaque">
+            <div class="imagem-produto-destaque"> 
+                <a href="#">
+                    <img src="img/Cachorros.png" alt="PetConnect Novidades">
+                </a>
+            </div>
+          </div>
+
+          <!-- Banner Novidades -->
+          <div class="card-produto-destaque">
+            <div class="imagem-produto-destaque">
+                <a href="#">    
+                    <img src="img/linhagato.png" alt="PetConnect Linha para Gatos">
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    
+  </main>
+
+  <!-- ==================== RODAPÉ / FOOTER ==================== -->
+  <footer class="rodape-principal">
+    <div class="container-rodape">
+      <!-- Logo do Rodapé -->
+      <div class="coluna-logo-rodape">
+         <a href="index.php">
+          <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
+        </a>
+      </div>
+
+      <!-- Coluna Quero Adotar -->
+      <div class="coluna-rodape">
+        <h4 class="titulo-coluna-rodape">Quero Adotar</h4>
+        <ul>
+          <li><a href="./adocao.html">Cães</a></li>
+          <li><a href="./adocao.html">Gatos</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna Produtos -->
+      <div class="coluna-rodape">
+        <h4 class="titulo-coluna-rodape">Produtos</h4>
+        <ul>
+          <li><a href="#">Cães</a></li>
+          <li><a href="#">Gatos</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna Institucional -->
+      <div class="coluna-rodape">
+        <h4 class="titulo-coluna-rodape">Institucional</h4>
+        <ul>
+          <li><a href="#">PetConnect</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna Atendimento -->
+      <div class="coluna-rodape">
+        <h4 class="titulo-coluna-rodape">Atendimento</h4>
+        <ul>
+          <li><a href="#">Meu Perfil</a></li>
+          <li><a href="#">Segurança e Privacidade</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna Redes Sociais -->
+      <div class="coluna-rodape">
+        <h4 class="titulo-coluna-rodape">Redes Sociais</h4>
+        <div class="icones-redes-sociais">
+        
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
