@@ -12,8 +12,6 @@ $cadastro = "";
 
 $msg = "";
 
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = is_string($_POST['nome'] ?? null) ? trim($_POST['nome']) : null;
     $email = is_string($_POST['email'] ?? null) ? trim($_POST['email']) : null;
@@ -22,31 +20,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefone = is_string($_POST['telefone'] ?? null) ? trim($_POST['telefone']) : null;
     $cidade = is_string($_POST['cidade'] ?? null) ? trim($_POST['cidade']) : null;
     $estado = is_string($_POST['estado'] ?? null) ? trim($_POST['estado']) : null;
-
+    print_r($_POST);
     if (
-        $nome == '' || strlen($nome) < 5 
+        $nome == '' || strlen($nome) >= 200
+        // || 
+        // $email == '' || strlen($email) >= 200 ||
+        // $senha == '' || strlen($senha) >= 10 ||
+        // $data_nascimento == '' || strlen($data_nascimento) ||
+        // $telefone == '' || strlen($telefone) >= 200 ||
+        // $cidade == '' || strlen($cidade) >= 200 ||
+        // $estado == '' || strlen($estado) >= 200 
     ) {
         $msg = "Por favor, preencha todos os campos obrigatórios corretamente.";
-        print_r($_POST);
     } else {
         try {
-           $idUsuario = create($pdo, "usuarios", [
+
+            $novoUsuario = create($pdo, 'usuarios', [
                 'nome' => $nome,
                 'email' => $email,
-                'senha' =>  $senha,
+                'senha' => $senha,
                 'data_nascimento' => $data_nascimento,
                 'telefone' => $telefone,
                 'cidade' => $cidade,
                 'estado' => $estado
             ]);
-
-            print "usuário cadastrado com o id: $idUsuario";
-
             header('Location: index.php');
-        } catch (PDOException $erro) {
-            print_r($erro);
-            error_log($erro->getMessage());
-            exit("Falha ao cadastrar usuário. Por favor, tente novamente mais tarde.");
+        } catch (Throwable $exception) {
+            print_r($exception);
+            $msg = "Banco de dados indisponível.";
         }
     }
 }
@@ -113,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <form action="" method="POST">
                 <div class="input-group full-width">
                     <label for="nome">Nome: </label>
-                    <input type="text" id="nome" name="nome" placeholder="Nome completo">
+                    <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
                 </div>
 
                 <div class="input-group full-width">
@@ -134,26 +135,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="row">
                     <div class="input-group half-width">
                         <label for="cidade">Cidade</label>
-                        <select id="cidade" name="cidade">
-                            <option value="">Selecione sua Cidade</option>
-                        </select>
+                        <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade">
                     </div>
                     <div class="input-group half-width">
                         <label for="estado">Estado</label>
-                        <select id="estado" name="estado">
-                            <option value="">Selecione seu Estado</option>
-                        </select>
+                        <input type="text" id="estado" name="estado" placeholder="Digite seu estado">
                     </div>
-                    <div class="input-group half-width">
-                        <label for="data-nascimento">Data de Nascimento</label>
-                        <input type="date" id="data-nascimento" name="data-nascimento" placeholder="Ponha sua data de nascimento">
-                    </div>
+                </div>
+                <div class="input-group half-width">
+                    <label for="data-nascimento">Data de Nascimento</label>
+                    <input type="date" id="data-nascimento" name="data_nascimento" placeholder="Ponha sua data de nascimento">
+                </div>
                 </div>
 
                 <div class="row">
                     <div class="input-group half-width">
                         <label for="senha">Senha</label>
-                        <input type="senha" id="senha" name="senha" placeholder="Crie uma senha">
+                        <input type="password" id="senha" name="senha" placeholder="Crie uma senha">
                     </div>
                     <div class="input-group half-width">
                         <label for="confirma-senha">Confirmação de Senha*</label>
