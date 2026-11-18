@@ -18,7 +18,7 @@ body {
 }
 
 .container-cabecalho {
- max-width: 1200px; /* Alinhamento centralizado com o corpo */
+ max-width: 1200px; 
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -32,7 +32,7 @@ body {
   display: block;
 }
 
-/* Barra de pesquisa arredondada com borda branca */
+
 .barra-pesquisa {
   display: flex;
   align-items: center;
@@ -65,7 +65,7 @@ body {
   align-items: center;
 }
 
-/* Links do menu */
+
 .menu-navegacao {
   display: flex;
   gap: 20px;
@@ -79,7 +79,7 @@ body {
 }
 
 
-/* Ações do usuário (Coração, Carrinho e Perfil) */
+
 .acoes-usuario {
   display: flex;
   align-items: center;
