@@ -84,7 +84,7 @@ VALUES
 (6, 6, 6, 'APROVADO', 'Adocao aprovada apos entrevista.'),
 (7, 7, 7, 'RECUSADO', 'Perfil nao atendeu aos criterios de adocao.'),
 (8, 8, 8, 'EM_ANALISE', 'Aguardando contato da equipe de adocao.'),
-(9, 9, 9, 'APROVADO', 'Processo de adocao concluido.'),
+(9, 9, 9, 'APROVADO', 'Processo de adocao está concluido.'),
 (10, 10, 10, 'CANCELADA', 'Solicitacao cancelada pelo usuario.');
 
 
