@@ -20,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefone = is_string($_POST['telefone'] ?? null) ? trim($_POST['telefone']) : null;
     $cidade = is_string($_POST['cidade'] ?? null) ? trim($_POST['cidade']) : null;
     $estado = is_string($_POST['estado'] ?? null) ? trim($_POST['estado']) : null;
-    print_r($_POST);
     if (
         $nome == '' || strlen($nome) >= 200 || 
          $email == '' || strlen($email) >= 200 ||
