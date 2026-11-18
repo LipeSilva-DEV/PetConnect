@@ -12,84 +12,107 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-
-header {
-    background-color: #f7a028;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* ==================== CABEÇALHO / HEADER ==================== */
+.cabecalho-principal {
+  background-color: #f1a80a;
+  padding: 20px 30px;
+  width: 100%;
 }
 
-.logo img {
-    height: 60px;
+.container-cabecalho {
+ max-width: 1200px; /* Alinhamento centralizado com o corpo */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-.header-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+.logo-cabecalho img {
+  height: 95px;
+  width: auto;
+  display: block;
 }
 
-.search-bar {
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    border: 1px solid white;
-    border-radius: 20px;
-    padding: 5px 15px;
-    width: 400px;
+/* Barra de pesquisa arredondada com borda branca */
+.barra-pesquisa {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 1.5px solid #ffffff;
+  border-radius: 20px;
+  padding: 6px 12px;
+  width: 320px;
 }
 
-.search-bar input {
-    border: none;
-    background: transparent;
-    outline: none;
-    color: white;
-    width: 100%;
+.barra-pesquisa input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  width: 100%;
+  font-size: 13px;
 }
 
-.search-bar input::placeholder {
-    color: white;
+.barra-pesquisa input::placeholder {
+  color: #ffffff;
+
 }
 
-.search-icon {
-    color: white;
-    cursor: pointer;
+.barra-pesquisa .botao-pesquisa {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
+/* Links do menu */
+.menu-navegacao {
+  display: flex;
+  gap: 20px;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 15px;
+.menu-navegacao a {
+ color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
 }
 
-.header-icons {
-    display: flex;
-    gap: 20px;
-    color: white;
-    font-size: 24px;
+
+/* Ações do usuário (Coração, Carrinho e Perfil) */
+.acoes-usuario {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.icon {
-    cursor: pointer;
+
+.icone-favorito, .icone-carrinho {
+  display: flex;
+  align-items: center;
 }
 
-.breadcrumb {
-    padding: 20px 40px;
-    font-size: 14px;
+
+.perfil-usuario {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: sans-serif;
+  color: #333;
+  cursor: pointer;
 }
 
-.breadcrumb strong {
-    font-weight: bold;
+.icone-user {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff;
+  transition: fill 0.3s;
+}
+
+.perfil-usuario:hover .icone-user {
+  fill: #ffffff;
 }
 
 .main-content {
@@ -234,15 +257,36 @@ nav ul li a {
   font-size: 13px;
 }
 
-/* Icones das redes sociais */
-.icones-redes-sociais {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  width: 70px;
+.secao-redes {
+  width: fit-content;
 }
 
-.icones-redes-sociais img {
-  width: 24px;
-  height: 24px;
+.secao-redes h3 {
+  color: #ffffff;
+  font-family: sans-serif;
+  margin-bottom: 10px;
 }
+
+.redes-sociais {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px 50px;
+  width: fit-content;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.social-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff; 
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
+} 
