@@ -1,11 +1,13 @@
 <?php
 require_once __DIR__ . '/init.php'; 
 
-if (empty($_SESSION['id_usuario']) && empty($_SESSION['email'])) {
+$idUsuario = $_SESSION['id_usuario'] ?? $_SESSION['usuario_id'] ?? null;
+
+if (empty($idUsuario)) {
     $_SESSION['redirect_apos_login'] = 'divulgacao.php';
     header('Location: login.php?aviso=login_necessario');
     exit;
-}
+} 
 
 $nome_animal = "";
 $especie = "";
@@ -114,10 +116,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     
       <nav class="menu-navegacao">
-        <a href="adocao.php">Quero Adotar</a>
-        <a href="divulgacao.php">Quero Divulgar</a>
-        <a href="produtosgeral.php">Nossos Produtos</a>
-        <a href="petconnect.html">PetConnect</a>
+        <a href="./adocao.php">Quero Adotar</a>
+        <a href="./divulgacao.php">Quero Divulgar</a>
+        <a href="./produtosgeral.php">Nossos Produtos</a>
+        <a href="./petconnect.html">PetConnect</a>
       </nav>
 
     
@@ -272,16 +274,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="coluna-rodape">
         <h4 class="titulo-coluna-rodape">Quero Adotar</h4>
         <ul>
-          <li><a href="#">Cães</a></li>
-          <li><a href="#">Gatos</a></li>
+          <li><a href="./adocao.php">Cães</a></li>
+          <li><a href="./adocao.php">Gatos</a></li>
         </ul>
       </div>
 
       <div class="coluna-rodape">
         <h4 class="titulo-coluna-rodape">Produtos</h4>
         <ul>
-          <li><a href="#">Cães</a></li>
-          <li><a href="#">Gatos</a></li>
+          <li><a href="./produtosgeral.php">Cães</a></li>
+          <li><a href="./produtosgeral.php">Gatos</a></li>
         </ul>
       </div>
 
@@ -289,7 +291,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="coluna-rodape">
         <h4 class="titulo-coluna-rodape">Institucional</h4>
         <ul>
-          <li><a href="#">PetConnect</a></li>
+          <li><a href="./petconnect.html">PetConnect</a></li>
         </ul>
       </div>
 
