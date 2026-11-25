@@ -1,5 +1,11 @@
 <?php
-require_once __DIR__ . '/init.php';
+require_once __DIR__ . '/init.php'; 
+
+if (empty($_SESSION['id_usuario']) && empty($_SESSION['email'])) {
+    $_SESSION['redirect_apos_login'] = 'divulgacao.php';
+    header('Location: login.php?aviso=login_necessario');
+    exit;
+}
 
 $nome_animal = "";
 $especie = "";
