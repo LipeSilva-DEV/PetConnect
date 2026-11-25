@@ -17,19 +17,19 @@ VALUES
 (7, 'Gabriela Nunes', 'gabriela.nunes@email.com', '012345678', '1999-01-30', '27999991007', 'Vitoria', 'ES'),
 (8, 'Hugo Martins', 'hugo.martins@email.com', '012345678', '1992-09-05', '62999991008', 'Goiania', 'GO'),
 (9, 'Isabela Freitas', 'isabela.freitas@email.com', '012345678', '2000-04-18', '71999991009', 'Salvador', 'BA'),
-(10, 'Joao Pereira', 'joao.pereira@email.com', '012345678', '1991-12-22', '81999991010', 'Recife', 'PE');
-
+(10, 'Joao Pereira', 'joao.pereira@email.com', '012345678', '1991-12-22', '81999991010', 'Recife', 'PE'),
+(11, 'Felipe', 'felipe.pereira@email.com', '012345678', '1991-12-22', '81999991010', 'São Paulo', 'SP');
 
 -- =========================================
 -- 2. TABELA: ANIMAIS
 -- =========================================
 
 INSERT INTO animais
-(nome_animal, especie, idade, sexo, porte, cidade, estado, raca,
+(id_usuario, nome_animal, especie, idade, sexo, porte, cidade, estado, raca,
  situacao_animal, cuidados_veterinarios, temperamento,
  sociabilidade, vivencia, status_animal, url_imagem)
 VALUES 
-('Thor', 'CACHORRO', 3, 'MACHO', 'GRANDE',
+(1, 'Thor', 'CACHORRO', 3, 'MACHO', 'GRANDE',
  'Sao Paulo', 'SP', 'Labrador',
  'Resgatado de uma situacao de abandono. Atualmente esta em um abrigo aguardando uma familia.',
  'Vacinado, vermifugado e castrado. Possui acompanhamento veterinario regular.',
@@ -39,7 +39,7 @@ VALUES
  'DISPONIVEL',
  'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/IMG/Tuf%C3%A3o.png'),
 
-('Mimi', 'GATO', 2, 'FEMEA', 'PEQUENO',
+(2, 'Mimi', 'GATO', 2, 'FEMEA', 'PEQUENO',
  'Curitiba', 'PR', 'Siames',
  'Encontrada na rua e acolhida por uma ONG de protecao animal.',
  'Vacinada, vermifugada e com exames de rotina realizados.',
@@ -49,7 +49,7 @@ VALUES
  'DISPONIVEL',
  'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/IMG/Didi.png'),
 
-('Bob', 'CACHORRO', 1, 'MACHO', 'MEDIO',
+(3, 'Bob', 'CACHORRO', 1, 'MACHO', 'MEDIO',
  'Rio de Janeiro', 'RJ', 'SRD',
  'Filhote resgatado junto com seus irmaos. Procura um lar definitivo.',
  'Possui vacinacao inicial e acompanhamento veterinario.',
@@ -59,7 +59,7 @@ VALUES
  'DISPONIVEL',
  'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/IMG/Rabanero.png'),
 
-('Luna', 'GATO', 4, 'FEMEA', 'PEQUENO',
+(4, 'Luna', 'GATO', 4, 'FEMEA', 'PEQUENO',
  'Belo Horizonte', 'MG', 'Persa',
  'Entregue para adocao apos sua antiga familia mudar de residencia.',
  'Vacinada, castrada e com acompanhamento veterinario em dia.',
@@ -69,7 +69,7 @@ VALUES
  'EM_PROCESSO',
  'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/IMG/Mantov%C3%A3o.png'),
 
-('Max', 'CACHORRO', 5, 'MACHO', 'GRANDE',
+(5, 'Max', 'CACHORRO', 5, 'MACHO', 'GRANDE',
  'Porto Alegre', 'RS', 'Pastor Alemao',
  'Resgatado por voluntarios e encaminhado para uma instituicao de acolhimento.',
  'Vacinado, castrado e vermifugado. Necessita de consultas periodicas.',
@@ -79,7 +79,7 @@ VALUES
  'DISPONIVEL',
  'https://example.com/imagens/max.jpg'),
 
-('Mel', 'CACHORRO', 6, 'FEMEA', 'PEQUENO',
+(7, 'Mel', 'CACHORRO', 6, 'FEMEA', 'PEQUENO',
  'Salvador', 'BA', 'Poodle',
  'Disponibilizada para adocao apos o falecimento de seu antigo tutor.',
  'Vacinada, castrada e com exames veterinarios atualizados.',
@@ -89,7 +89,7 @@ VALUES
  'ADOTADO',
  'https://example.com/imagens/mel.jpg'),
 
-('Nina', 'GATO', 1, 'FEMEA', 'PEQUENO',
+(8, 'Nina', 'GATO', 1, 'FEMEA', 'PEQUENO',
  'Florianopolis', 'SC', 'Maine Coon',
  'Encontrada em uma residencia abandonada e acolhida por voluntarios.',
  'Vacinada, vermifugada e com acompanhamento veterinario.',
@@ -99,7 +99,7 @@ VALUES
  'DISPONIVEL',
  'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/gato2.png'),
 
-('Pingo', 'OUTRO', 2, 'MACHO', 'PEQUENO',
+(9, 'Pingo', 'OUTRO', 2, 'MACHO', 'PEQUENO',
  'Recife', 'PE', 'Coelho Mini Lop',
  'Resgatado de uma criacao inadequada e encaminhado para adocao responsavel.',
  'Acompanhamento veterinario especializado e alimentacao adequada.',
@@ -109,7 +109,7 @@ VALUES
  'DISPONIVEL',
  'https://example.com/imagens/pingo.jpg'),
 
-('Rex', 'CACHORRO', 4, 'MACHO', 'MEDIO',
+(10, 'Rex', 'CACHORRO', 4, 'MACHO', 'MEDIO',
  'Goiania', 'GO', 'Golden Retriever',
  'Resgatado apos ficar perdido nas ruas. Foi acolhido por uma familia temporaria.',
  'Vacinado, vermifugado e castrado.',
@@ -119,7 +119,7 @@ VALUES
  'EM_PROCESSO',
  'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/cachorro3.png'),
 
-('Amora', 'GATO', 3, 'FEMEA', 'PEQUENO',
+(11, 'Amora', 'GATO', 3, 'FEMEA', 'PEQUENO',
  'Campinas', 'SP', 'SRD',
  'Resgatada ainda filhote e cuidada por voluntarios de uma ONG.',
  'Castrada, vacinada e com acompanhamento veterinario atualizado.',

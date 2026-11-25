@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 USE PetConnect; 
 
 CREATE TABLE IF NOT EXISTS animais(
+	id_usuario INT UNSIGNED NOT NULL, 
 	id_animal INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 	nome_animal VARCHAR(200) NOT NULL,
 	especie ENUM('CACHORRO', 'GATO', 'OUTRO') NOT NULL, 
@@ -34,7 +35,8 @@ CREATE TABLE IF NOT EXISTS animais(
 	vivencia TEXT(200) NOT NULL, 
 	status_animal ENUM('DISPONIVEL', 'EM_PROCESSO', 'ADOTADO') DEFAULT 'DISPONIVEL', 
 	criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    url_imagem VARCHAR(255) NOT NULL  
+    url_imagem VARCHAR(255) NOT NULL, 
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) 
 
 ); 
 
