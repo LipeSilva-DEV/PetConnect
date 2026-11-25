@@ -5,6 +5,8 @@ $erro = '';
 $email = '';
 $aviso = '';
 
+$idUsuario = $_SESSION['id_usuario'] ?? $_SESSION['usuario_id'] ?? null;
+
 if (($_GET['aviso'] ?? '') === 'login_necessario') {
     $aviso = 'Você precisa fazer login ou criar uma conta para divulgar um animal.';
 }
@@ -31,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($senhaValida) {
             // Salva os dados na sessão e envia para index.php
-            $_SESSION['usuario_id'] = $usuario['id'] ?? null;
+            $_SESSION['usuario_id'] = $usuario['id_usuario'] ?? null;
             $_SESSION['usuario_nome'] = $usuario['nome'] ?? '';
             $_SESSION['usuario_email'] = $usuario['email'];
 
@@ -71,10 +73,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <!-- Menu de Navegação -->
       <nav class="menu-navegacao">
-        <a href="#">Quero Adotar</a>
-        <a href="#">Quero Divulgar</a>
-        <a href="#">Nossos Produtos</a>
-        <a href="#">PetConnect</a>
+        <a href="./adocao.php">Quero Adotar</a>
+        <a href="./divulgacao.php">Quero Divulgar</a>
+        <a href="./produtosgeral.php">Nossos Produtos</a>
+        <a href="./petconnect.html">PetConnect</a>
       </nav>
 
       <!-- Ações (Favoritos, Carrinho e Cadastro) -->
@@ -87,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         </a>
 
-        <div class="perfil-usuario">
+        <div class="perfil-usuario" onclick="window.location.href='perfil.php'">
           <svg class="icone-user" viewBox="0 0 24 24">
             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
           </svg>
@@ -150,8 +152,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="coluna-rodape">
         <h4 class="titulo-coluna-rodape">Quero Adotar</h4>
         <ul>
-          <li><a href="#">Cães</a></li>
-          <li><a href="#">Gatos</a></li>
+          <li><a href="./adocao.php">Cães</a></li>
+          <li><a href="./adocao.php">Gatos</a></li>
         </ul>
       </div>
 
@@ -159,8 +161,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="coluna-rodape">
         <h4 class="titulo-coluna-rodape">Produtos</h4>
         <ul>
-          <li><a href="#">Cães</a></li>
-          <li><a href="#">Gatos</a></li>
+          <li><a href="./produtosgeral.php">Cães</a></li>
+          <li><a href="./produtosgeral.php">Gatos</a></li>
         </ul>
       </div>
 
@@ -168,7 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="coluna-rodape">
         <h4 class="titulo-coluna-rodape">Institucional</h4>
         <ul>
-          <li><a href="#">PetConnect</a></li>
+          <li><a href="./petconnect.html">PetConnect</a></li>
         </ul>
       </div>
 
