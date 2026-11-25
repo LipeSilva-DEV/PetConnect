@@ -1,3 +1,48 @@
+<?php
+require_once __DIR__ . '/init.php';
+
+$erro = '';
+$email = '';
+$aviso = '';
+
+if (($_GET['aviso'] ?? '') === 'login_necessario') {
+    $aviso = 'Você precisa fazer login ou criar uma conta para divulgar um animal.';
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = trim($_POST['email'] ?? '');
+    $senha = $_POST['senha'] ?? '';
+
+    if ($email === '' || $senha === '') {
+        $erro = 'Preencha o e-mail e a senha para entrar.';
+    } else {
+        // Busca o usuário pelo e-mail usando a função read() do CRUD
+        $usuario = read($pdo, 'usuarios', 'email = ?', [$email]);
+
+        // Se não tiver cadastro, redireciona para cadastro.php
+        if (!$usuario) {
+            header('Location: cadastro.php');
+            exit;
+        }
+
+        // Verifica a senha (funciona tanto com password_hash() quanto com texto simples)
+        $senhaBanco = (string) ($usuario['senha'] ?? '');
+        $senhaValida = password_verify($senha, $senhaBanco) || $senha === $senhaBanco;
+
+        if ($senhaValida) {
+            // Salva os dados na sessão e envia para index.php
+            $_SESSION['usuario_id'] = $usuario['id'] ?? null;
+            $_SESSION['usuario_nome'] = $usuario['nome'] ?? '';
+            $_SESSION['usuario_email'] = $usuario['email'];
+
+            header('Location: index.php');
+            exit;
+        } else {
+            $erro = 'Senha incorreta. Tente novamente.';
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -37,8 +82,7 @@
         <a href="#" class="icone-favorito">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
         </a>
-        
-        <!-- Ícone de Carrinho (Adicionado para ficar idêntico à imagem) -->
+
         <a href="#" class="icone-carrinho">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         </a>
@@ -61,26 +105,32 @@
         <section class="banner-section">
             <div class="banner-content">
                 <img src="./IMG/login.png" alt="Cão e Gato" class="banner-img">
-                
-
-                </div>
-
             </div>
         </section>
 
         <section class="form-section">
             <div class="form-container">
                 <h2>Faça seu Login</h2>
-                
-                <form action="#">
+
+                <?php if ($erro !== ''): ?>
+                    <p class="mensagem-erro"><?= htmlspecialchars($erro, ENT_QUOTES, 'UTF-8') ?></p>
+                <?php endif; ?>
+
+                <form action="login.php" method="POST">
                     <div class="input-group">
                         <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email">
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value="<?= htmlspecialchars($email, ENT_QUOTES, 'UTF-8') ?>"
+                            required
+                        >
                     </div>
 
                     <div class="input-group">
                         <label for="senha">Senha</label>
-                        <input type="password" id="senha" name="senha">
+                        <input type="password" id="senha" name="senha" required>
                     </div>
 
                     <button type="submit" class="submit-btn">Entrar</button>
@@ -88,7 +138,7 @@
             </div>
         </section>
     </main>
-    
+
 <footer class="rodape-principal">
     <div class="container-rodape">
       <!-- Logo do Rodapé -->
