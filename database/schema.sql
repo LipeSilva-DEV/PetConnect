@@ -19,7 +19,7 @@ USE PetConnect;
 
 CREATE TABLE IF NOT EXISTS animais(
 	id_animal INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-	nome VARCHAR(200) NOT NULL,
+	nome_animal VARCHAR(200) NOT NULL,
 	especie ENUM('CACHORRO', 'GATO', 'OUTRO') NOT NULL, 
 	idade INT NOT NULL, 
 	sexo ENUM('MACHO', 'FEMEA', 'OUTRO') NOT NULL, 
@@ -27,7 +27,11 @@ CREATE TABLE IF NOT EXISTS animais(
 	cidade VARCHAR(200) NOT NULL, 
 	estado VARCHAR(200) NOT NULL, 
 	raca VARCHAR(50) NOT NULL, 
-	situacao_animal TEXT NOT NULL, 
+	situacao_animal TEXT(200) NOT NULL, 
+	cuidados_veterinarios TEXT(200) NOT NULL, 
+	temperamento TEXT(200) NOT NULL, 
+	sociabilidade TEXT(200) NOT NULL, 
+	vivencia TEXT(200) NOT NULL, 
 	status_animal ENUM('DISPONIVEL', 'EM_PROCESSO', 'ADOTADO') DEFAULT 'DISPONIVEL', 
 	criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     url_imagem VARCHAR(255) NOT NULL  
