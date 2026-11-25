@@ -17,57 +17,117 @@ VALUES
 (7, 'Gabriela Nunes', 'gabriela.nunes@email.com', '012345678', '1999-01-30', '27999991007', 'Vitoria', 'ES'),
 (8, 'Hugo Martins', 'hugo.martins@email.com', '012345678', '1992-09-05', '62999991008', 'Goiania', 'GO'),
 (9, 'Isabela Freitas', 'isabela.freitas@email.com', '012345678', '2000-04-18', '71999991009', 'Salvador', 'BA'),
-(10, 'Joao Pereira', 'joao.pereira@email.com', '012345678', '1991-12-22', '81999991010', 'Recife', 'PE');
-
+(10, 'Joao Pereira', 'joao.pereira@email.com', '012345678', '1991-12-22', '81999991010', 'Recife', 'PE'),
+(11, 'Felipe', 'felipe.pereira@email.com', '012345678', '1991-12-22', '81999991010', 'São Paulo', 'SP');
 
 -- =========================================
 -- 2. TABELA: ANIMAIS
 -- =========================================
 
 INSERT INTO animais
-(id_animal, nome, especie, idade, sexo, porte, cidade, estado, raca,
- situacao_animal, status_animal, url_imagem)
-VALUES
-(1, 'Thor', 'CACHORRO', 3, 'MACHO', 'MEDIO', 'Curitiba', 'PR',
- 'Labrador', 'Cachorro resgatado, vacinado e muito brincalhao.', 'DISPONIVEL',
- 'https://example.com/imagens/thor.jpg'),
+(id_usuario, nome_animal, especie, idade, sexo, porte, cidade, estado, raca,
+ situacao_animal, cuidados_veterinarios, temperamento,
+ sociabilidade, vivencia, status_animal, url_imagem)
+VALUES 
+(1, 'Thor', 'CACHORRO', 3, 'MACHO', 'GRANDE',
+ 'Sao Paulo', 'SP', 'Labrador',
+ 'Resgatado de uma situacao de abandono. Atualmente esta em um abrigo aguardando uma familia.',
+ 'Vacinado, vermifugado e castrado. Possui acompanhamento veterinario regular.',
+ 'Brincalhao, carinhoso, inteligente e bastante ativo.',
+ 'Convive bem com pessoas e outros cachorros.',
+ 'Acostumado a passeios diarios e ambientes com bastante espaco.',
+ 'DISPONIVEL',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/IMG/Tuf%C3%A3o.png'),
 
-(2, 'Mimi', 'GATO', 2, 'FEMEA', 'PEQUENO', 'Florianopolis', 'SC',
- 'Siamês', 'Gata tranquila, carinhosa e acostumada com pessoas.', 'EM_PROCESSO',
- 'https://example.com/imagens/mimi.jpg'),
+(2, 'Mimi', 'GATO', 2, 'FEMEA', 'PEQUENO',
+ 'Curitiba', 'PR', 'Siames',
+ 'Encontrada na rua e acolhida por uma ONG de protecao animal.',
+ 'Vacinada, vermifugada e com exames de rotina realizados.',
+ 'Tranquila, independente e bastante carinhosa.',
+ 'Convive bem com adultos e outros gatos.',
+ 'Acostumada a viver dentro de casa e utilizar caixa de areia.',
+ 'DISPONIVEL',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/IMG/Didi.png'),
 
-(3, 'Nina', 'CACHORRO', 4, 'FEMEA', 'PEQUENO', 'Porto Alegre', 'RS',
- 'SRD', 'Cachorra resgatada, sociavel e com vacinas em dia.', 'ADOTADO',
- 'https://example.com/imagens/nina.jpg'),
+(3, 'Bob', 'CACHORRO', 1, 'MACHO', 'MEDIO',
+ 'Rio de Janeiro', 'RJ', 'SRD',
+ 'Filhote resgatado junto com seus irmaos. Procura um lar definitivo.',
+ 'Possui vacinacao inicial e acompanhamento veterinario.',
+ 'Energetico, curioso e muito brincalhao.',
+ 'Gosta de pessoas, criancas e outros animais.',
+ 'Acostumado a ambientes familiares e atividades recreativas.',
+ 'DISPONIVEL',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/IMG/Rabanero.png'),
 
-(4, 'Rex', 'CACHORRO', 5, 'MACHO', 'GRANDE', 'Campinas', 'SP',
- 'Beagle', 'Animal ativo, gosta de passeios e ambientes abertos.', 'DISPONIVEL',
- 'https://example.com/imagens/rex.jpg'),
+(4, 'Luna', 'GATO', 4, 'FEMEA', 'PEQUENO',
+ 'Belo Horizonte', 'MG', 'Persa',
+ 'Entregue para adocao apos sua antiga familia mudar de residencia.',
+ 'Vacinada, castrada e com acompanhamento veterinario em dia.',
+ 'Calma, delicada e afetuosa.',
+ 'Convive bem com pessoas e prefere ambientes tranquilos.',
+ 'Acostumada a morar em apartamentos e ambientes internos.',
+ 'EM_PROCESSO',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/IMG/Mantov%C3%A3o.png'),
 
-(5, 'Luna', 'GATO', 1, 'FEMEA', 'PEQUENO', 'Rio de Janeiro', 'RJ',
- 'Persa', 'Gata filhote, precisa de uma familia amorosa.', 'EM_PROCESSO',
- 'https://example.com/imagens/luna.jpg'),
-
-(6, 'Mel', 'CACHORRO', 6, 'FEMEA', 'MEDIO', 'Belo Horizonte', 'MG',
- 'Poodle', 'Cachorra calma, adestrada e acostumada com crianças.', 'ADOTADO',
- 'https://example.com/imagens/mel.jpg'),
-
-(7, 'Bob', 'CACHORRO', 2, 'MACHO', 'MEDIO', 'Vitoria', 'ES',
- 'SRD', 'Cachorro brincalhao, saudavel e bastante companheiro.', 'DISPONIVEL',
- 'https://example.com/imagens/bob.jpg'),
-
-(8, 'Amora', 'GATO', 3, 'FEMEA', 'PEQUENO', 'Goiania', 'GO',
- 'Shih-Tzu', 'Animal dócil, precisa de um lar seguro e acolhedor.', 'EM_PROCESSO',
- 'https://example.com/imagens/amora.jpg'),
-
-(9, 'Max', 'CACHORRO', 4, 'MACHO', 'GRANDE', 'Salvador', 'BA',
- 'Pitbull', 'Cachorro sociavel, brincalhao e bem cuidado.', 'ADOTADO',
+(5, 'Max', 'CACHORRO', 5, 'MACHO', 'GRANDE',
+ 'Porto Alegre', 'RS', 'Pastor Alemao',
+ 'Resgatado por voluntarios e encaminhado para uma instituicao de acolhimento.',
+ 'Vacinado, castrado e vermifugado. Necessita de consultas periodicas.',
+ 'Protetor, inteligente, obediente e atento.',
+ 'Pode conviver com outros animais mediante adaptacao.',
+ 'Acostumado a passeios, treinamentos e ambientes externos.',
+ 'DISPONIVEL',
  'https://example.com/imagens/max.jpg'),
 
-(10, 'Toby', 'CACHORRO', 1, 'MACHO', 'PEQUENO', 'Recife', 'PE',
- 'Bulldog', 'Filhote ativo, vacinado e pronto para encontrar uma familia.', 'DISPONIVEL',
- 'https://example.com/imagens/toby.jpg');
+(7, 'Mel', 'CACHORRO', 6, 'FEMEA', 'PEQUENO',
+ 'Salvador', 'BA', 'Poodle',
+ 'Disponibilizada para adocao apos o falecimento de seu antigo tutor.',
+ 'Vacinada, castrada e com exames veterinarios atualizados.',
+ 'Docil, tranquila e muito companheira.',
+ 'Convive bem com criancas, adultos e outros animais.',
+ 'Acostumada a morar em casa e permanecer em ambientes internos.',
+ 'ADOTADO',
+ 'https://example.com/imagens/mel.jpg'),
 
+(8, 'Nina', 'GATO', 1, 'FEMEA', 'PEQUENO',
+ 'Florianopolis', 'SC', 'Maine Coon',
+ 'Encontrada em uma residencia abandonada e acolhida por voluntarios.',
+ 'Vacinada, vermifugada e com acompanhamento veterinario.',
+ 'Curiosa, carinhosa e bastante brincalhona.',
+ 'Apresenta boa convivencia com outros gatos.',
+ 'Acostumada a ambientes internos e brinquedos interativos.',
+ 'DISPONIVEL',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/gato2.png'),
+
+(9, 'Pingo', 'OUTRO', 2, 'MACHO', 'PEQUENO',
+ 'Recife', 'PE', 'Coelho Mini Lop',
+ 'Resgatado de uma criacao inadequada e encaminhado para adocao responsavel.',
+ 'Acompanhamento veterinario especializado e alimentacao adequada.',
+ 'Calmo, curioso e sociavel.',
+ 'Aceita contato humano gradual e ambientes tranquilos.',
+ 'Acostumado a viver em espaco protegido e adaptado para coelhos.',
+ 'DISPONIVEL',
+ 'https://example.com/imagens/pingo.jpg'),
+
+(10, 'Rex', 'CACHORRO', 4, 'MACHO', 'MEDIO',
+ 'Goiania', 'GO', 'Golden Retriever',
+ 'Resgatado apos ficar perdido nas ruas. Foi acolhido por uma familia temporaria.',
+ 'Vacinado, vermifugado e castrado.',
+ 'Amigavel, obediente e muito brincalhao.',
+ 'Convive muito bem com criancas e outros cachorros.',
+ 'Acostumado a passeios, brincadeiras e convivio familiar.',
+ 'EM_PROCESSO',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/cachorro3.png'),
+
+(11, 'Amora', 'GATO', 3, 'FEMEA', 'PEQUENO',
+ 'Campinas', 'SP', 'SRD',
+ 'Resgatada ainda filhote e cuidada por voluntarios de uma ONG.',
+ 'Castrada, vacinada e com acompanhamento veterinario atualizado.',
+ 'Afetuosa, tranquila e independente.',
+ 'Convive bem com adultos e outros gatos.',
+ 'Acostumada a ambientes internos, arranhadores e caixa de areia.',
+ 'DISPONIVEL',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/gato4.png');
 
 -- =========================================
 -- 3. TABELA: SOLICITACOES_ADOCAO
@@ -112,18 +172,64 @@ VALUES
 -- =========================================
 
 INSERT INTO produtos
-(id_produto, nome, categoria, preco, estoque, especie_indicada)
+(nome, categoria, preco, estoque, especie_indicada, url_imagem)
 VALUES
-(1, 'Guia Ajustavel', 'UTILITARIO', 39.90, 50, 'CACHORRO'),
-(2, 'Cama Pet', 'UTILITARIO', 129.90, 20, 'TODOS'),
-(3, 'Bola Interativa', 'BRINQUEDO', 19.90, 100, 'CACHORRO'),
-(4, 'Petisco Natural', 'PETISCO', 14.50, 80, 'TODOS'),
-(5, 'Caixa Transporte', 'UTILITARIO', 89.90, 15, 'GATO'),
-(6, 'Arranhador', 'BRINQUEDO', 119.90, 25, 'GATO'),
-(7, 'Comedouro', 'UTILITARIO', 29.90, 60, 'TODOS'),
-(8, 'Corda Mordedora', 'BRINQUEDO', 24.90, 45, 'CACHORRO'),
-(9, 'Shampoo Neutro', 'UTILITARIO', 32.00, 35, 'TODOS'),
-(10, 'Racao Umida', 'PETISCO', 8.90, 120, 'GATO');
+
+-- =====================================
+-- ALIMENTOS (6 REGISTROS)
+-- =====================================
+
+('Petisco para Gatos Sabor Salmao',
+ 'ALIMENTO', 18.90, 50, 'GATO',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/PetCat%20-%20Salm%C3%A3o.png'),
+
+('Petisco para Cachorros Sabor Frango',
+ 'ALIMENTO', 16.90, 60, 'CACHORRO',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/Bifinho-%20Frango.png'),
+
+('Petisco para Cachorros Sabor Carne',
+ 'ALIMENTO', 17.90, 45, 'CACHORRO',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/Bifinho-Carne.png'),
+
+('Petisco para Cachorros Original',
+ 'ALIMENTO', 14.90, 70, 'CACHORRO',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/PetBiscoito.png'),
+
+('Petisco para Gatos Sabor Frango',
+ 'ALIMENTO', 19.90, 40, 'GATO',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/PetCat%20-%20Salm%C3%A3o.png'),
+
+('Petisco para Gatos Sabor Carne',
+ 'ALIMENTO', 20.90, 35, 'GATO',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/PetCat-Carne.png'),
+
+-- =====================================
+-- PRODUTOS (6 REGISTROS)
+-- =====================================
+
+('Cama para Gatos',
+ 'PRODUTO', 89.90, 20, 'GATO',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/CamaCat.png'),
+
+('Cama para Cachorros',
+ 'PRODUTO', 129.90, 25, 'CACHORRO',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/CamaDog.png'),
+
+('Coleira de Couro',
+ 'PRODUTO', 49.90, 30, 'CACHORRO',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/Coleira%20couro.png'),
+
+('Coleira Guizo',
+ 'PRODUTO', 24.90, 40, 'GATO',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/ColeiraGuizo.png'),
+
+('Bolsa de Transporte Cachorros',
+ 'PRODUTO', 159.90, 15, 'CACHORRO',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/BolsaTransporte.png'),
+
+('Bolsa de Transporte Gatos',
+ 'PRODUTO', 139.90, 18, 'GATO',
+ 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/BolsaTransporteCat.png');
 
 
 -- =========================================
