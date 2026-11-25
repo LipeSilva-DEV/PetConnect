@@ -9,7 +9,7 @@ if (empty($idUsuario)) {
     exit;
 } 
 
-$nome_animal = "";
+$nome = "";
 $especie = "";
 $idade = "";
 $sexo = "";
@@ -25,7 +25,7 @@ $sociabilidade = "";
 $vivencia = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome_animal = is_string($_POST['nome_animal'] ?? null) ? trim($_POST['nome_animal']) : null;
+    $nome = is_string($_POST['nome'] ?? null) ? trim($_POST['nome']) : null;
     $especie = is_string($_POST['especie'] ?? null) ? trim($_POST['especie']) : null;
     $idade = is_string($_POST['idade'] ?? null) ? trim($_POST['idade']) : null;
     $sexo = is_string($_POST['sexo'] ?? null) ? trim($_POST['sexo']) : null;
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sociabilidade = is_string($_POST['sociabilidade'] ?? null) ? trim($_POST['sociabilidade']) : null;
     $vivencia = is_string($_POST['vivencia'] ?? null) ? trim($_POST['vivencia']) : null;
     if (
-        $nome_animal == '' || strlen($nome_animal) >= 200 || 
+        $nome == '' || strlen($nome) >= 200 || 
          $especie == '' || strlen($especie) >= 200 ||
          $idade == '' || strlen($idade) >= 10 ||
          $sexo == '' || strlen($sexo) >= 15||
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         try {
             $novoAnimal = create($pdo, 'animais', [
-                'nome_animal' => $nome_animal,
+                'nome' => $nome,
                 'especie' => $especie,
                 'idade' => $idade,
                 'sexo' => $sexo,
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container-cabecalho">
     
       <div class="logo-cabecalho">
-        <img src="./img-lora/PetConnectLOGO.png" alt="PetConnect Logo">
+        <img src="./img-lora/PetConnectLOGO.png" alt="PetConnect Logo" onclick="window.location.href='index.php'">
       </div>
 
     
@@ -133,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         </a>
 
-        <div class="perfil-usuario">
+        <div class="perfil-usuario" onclick="window.location.href='perfil.php'">
           <svg class="icone-user" viewBox="0 0 24 24">
             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
           </svg>
