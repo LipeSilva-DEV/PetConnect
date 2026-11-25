@@ -19,7 +19,7 @@ body {
 }
 
 .container-cabecalho {
-  max-width: 100%;
+ max-width: 1200px; 
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -33,14 +33,14 @@ body {
   display: block;
 }
 
-/* Barra de pesquisa arredondada com borda branca */
+
 .barra-pesquisa {
   display: flex;
   align-items: center;
   background-color: transparent;
   border: 1.5px solid #ffffff;
   border-radius: 20px;
-  padding: 4px 12px;
+  padding: 6px 12px;
   width: 320px;
 }
 
@@ -55,6 +55,7 @@ body {
 
 .barra-pesquisa input::placeholder {
   color: #ffffff;
+
 }
 
 .barra-pesquisa .botao-pesquisa {
@@ -65,39 +66,52 @@ body {
   align-items: center;
 }
 
-/* Links do menu */
+
 .menu-navegacao {
   display: flex;
   gap: 20px;
 }
 
 .menu-navegacao a {
-  color: #ffffff;
+ color: #ffffff;
   text-decoration: none;
   font-weight: bold;
   font-size: 14px;
 }
 
-/* Ações do usuário (Coração e Botão Cadastro) */
+
+
 .acoes-usuario {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.icone-favorito {
+
+.icone-favorito, .icone-carrinho {
   display: flex;
   align-items: center;
 }
 
-.botao-cadastro {
-  border: 1.5px solid #ffffff;
-  color: #ffffff;
-  padding: 5px 18px;
-  border-radius: 15px;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: bold;
+
+.perfil-usuario {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: sans-serif;
+  color: #333;
+  cursor: pointer;
+}
+
+.icone-user {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff;
+  transition: fill 0.3s;
+}
+
+.perfil-usuario:hover .icone-user {
+  fill: #ffffff;
 }
 
 /* ==========================================================================
@@ -221,22 +235,25 @@ body {
   padding: 30px 40px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
 }
 
 .card-paisagem-item {
-  width: 30%;
+  width: 31%;
+  height: 360px; 
   border-radius: 25px;
   overflow: hidden;
-  background-color: #b0e0e6;
+  background-color: #000000;
 }
 
-.card-paisagem-item img {
+.card-paisagem-item img,
+.card-paisagem-item video {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
-
 
 .secao-porque-adotar {
   max-width: 1200px;
@@ -421,15 +438,36 @@ body {
   font-size: 13px;
 }
 
-/* Icones das redes sociais */
-.icones-redes-sociais {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  width: 70px;
+.secao-redes {
+  width: fit-content;
 }
 
-.icones-redes-sociais img {
-  width: 24px;
-  height: 24px;
+.secao-redes h3 {
+  color: #ffffff;
+  font-family: sans-serif;
+  margin-bottom: 10px;
+}
+
+.redes-sociais {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px 50px;
+  width: fit-content;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.social-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff; 
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
 }
