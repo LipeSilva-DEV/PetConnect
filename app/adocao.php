@@ -1,21 +1,94 @@
+<?php
+require_once __DIR__ . '/init.php';
+
+$estadosBrasil = [
+    'AC' => 'Acre',
+    'AL' => 'Alagoas',
+    'AP' => 'Amapá',
+    'AM' => 'Amazonas',
+    'BA' => 'Bahia',
+    'CE' => 'Ceará',
+    'DF' => 'Distrito Federal',
+    'ES' => 'Espírito Santo',
+    'GO' => 'Goiás',
+    'MA' => 'Maranhão',
+    'MT' => 'Mato Grosso',
+    'MS' => 'Mato Grosso do Sul',
+    'MG' => 'Minas Gerais',
+    'PA' => 'Pará',
+    'PB' => 'Paraíba',
+    'PR' => 'Paraná',
+    'PE' => 'Pernambuco',
+    'PI' => 'Piauí',
+    'RJ' => 'Rio de Janeiro',
+    'RN' => 'Rio Grande do Norte',
+    'RS' => 'Rio Grande do Sul',
+    'RO' => 'Rondônia',
+    'RR' => 'Roraima',
+    'SC' => 'Santa Catarina',
+    'SP' => 'São Paulo',
+    'SE' => 'Sergipe',
+    'TO' => 'Tocantins',
+];
+
+$especie = is_string($_GET['especie'] ?? null) ? trim($_GET['especie']) : '';
+$sexo    = is_string($_GET['sexo'] ?? null) ? trim($_GET['sexo']) : '';
+$porte   = is_string($_GET['porte'] ?? null) ? trim($_GET['porte']) : '';
+$estado  = is_string($_GET['estado'] ?? null) ? trim($_GET['estado']) : '';
+
+$condicoes = [];
+$params    = [];
+
+if ($especie !== '') {
+    $condicoes[] = 'especie = ?';
+    $params[]    = $especie;
+}
+
+if ($sexo !== '') {
+    $condicoes[] = 'sexo = ?';
+    $params[]    = $sexo;
+}
+
+if ($porte !== '') {
+    $condicoes[] = 'porte = ?';
+    $params[]    = $porte;
+}
+
+if ($estado !== '' && isset($estadosBrasil[$estado])) {
+    $condicoes[] = '(estado = ? OR estado = ?)';
+    $params[]    = $estado;
+    $params[]    = $estadosBrasil[$estado];
+}
+
+$where = !empty($condicoes) ? implode(' AND ', $condicoes) : null;
+
+$animais = [];
+$erro    = '';
+
+try {
+    $animais = readAll($pdo, 'animais', $where, $params);
+} catch (Throwable $exception) {
+    error_log($exception->getMessage());
+    $erro = 'Não foi possível carregar os animais no momento.';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PetConnect - Página Adoção'</title>
+  <title>PetConnect - Página Adoção</title>
   <link rel="stylesheet" href="adocao.css">
 </head>
 <body>
 
-
-  
   <!-- ==================== CABEÇALHO / HEADER ==================== -->
   <header class="cabecalho-principal">
     <div class="container-cabecalho">
       <!-- Logo PetConnect -->
       <div class="logo-cabecalho">
-        <img src="img/PetConnectLOGO.png" alt="PetConnect Logo">
+        <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
       </div>
 
       <!-- Barra de Pesquisa -->
@@ -28,10 +101,10 @@
 
       <!-- Menu de Navegação -->
       <nav class="menu-navegacao">
-        <a href="#">Quero Adotar</a>
-        <a href="#">Quero Divulgar</a>
-        <a href="#">Nossos Produtos</a>
-        <a href="#">PetConnect</a>
+        <a href="adocao.php">Quero Adotar</a>
+        <a href="divulgacao.php">Quero Divulgar</a>
+        <a href="produtosgeral.php">Nossos Produtos</a>
+        <a href="petconnect.html">PetConnect</a>
       </nav>
 
       <!-- Ações (Favoritos, Carrinho e Cadastro) -->
@@ -39,8 +112,7 @@
         <a href="#" class="icone-favorito">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
         </a>
-        
-        <!-- Ícone de Carrinho (Adicionado para ficar idêntico à imagem) -->
+
         <a href="#" class="icone-carrinho">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         </a>
@@ -54,151 +126,94 @@
     </div>
   </header>
 
-
   <main class="main-container">
     <br><br>
     <h1 class="page-title">Encontre seu mais novo amigo aqui!!</h1>
 
-  
     <section class="filter-card">
-      <form class="filter-form">
+      <form class="filter-form" action="adocao.php" method="GET">
         <div class="select-group">
-          <select name="animal">
-            <option value="" selected>Gato</option>
-            <option value="" selected>Cachorro</option>
-            <option value="" selected>Animal</option>
+          <select name="especie">
+            <option value="" <?= $especie === '' ? 'selected' : '' ?>>Animal (Todos)</option>
+            <option value="CACHORRO" <?= $especie === 'CACHORRO' ? 'selected' : '' ?>>Cachorro</option>
+            <option value="GATO" <?= $especie === 'GATO' ? 'selected' : '' ?>>Gato</option>
+            <option value="OUTRO" <?= $especie === 'OUTRO' ? 'selected' : '' ?>>Outro</option>
           </select>
         </div>
 
         <div class="select-group">
           <select name="sexo">
-            <option value=""  selected>Masculino</option>
-             <option value="" selected>Feminina</option>
-              <option value="" selected>Sexo</option>
+            <option value="" <?= $sexo === '' ? 'selected' : '' ?>>Sexo (Todos)</option>
+            <option value="MACHO" <?= $sexo === 'MACHO' ? 'selected' : '' ?>>Macho</option>
+            <option value="FEMEA" <?= $sexo === 'FEMEA' ? 'selected' : '' ?>>Fêmea</option>
+            <option value="OUTRO" <?= $sexo === 'OUTRO' ? 'selected' : '' ?>>Outro</option>
           </select>
         </div>
 
         <div class="select-group">
-          <select name="tamanho">
-             <option value="" selected>Porte Grande</option>
-             <option value="" selected>Porte Médio</option>
-             <option value="" selected>Porte Pequeno</option>
-            <option value="" selected>Tamanho</option>
+          <select name="porte">
+            <option value="" <?= $porte === '' ? 'selected' : '' ?>>Tamanho (Todos)</option>
+            <option value="PEQUENO" <?= $porte === 'PEQUENO' ? 'selected' : '' ?>>Porte Pequeno</option>
+            <option value="MEDIO" <?= $porte === 'MEDIO' ? 'selected' : '' ?>>Porte Médio</option>
+            <option value="GRANDE" <?= $porte === 'GRANDE' ? 'selected' : '' ?>>Porte Grande</option>
           </select>
         </div>
 
         <div class="select-group">
           <select name="estado">
-            <option value="" selected>SP</option>
-             <option value="" selected>RJ</option>
-              <option value="" selected>RO</option>
-               <option value="" selected>AM</option>
-                <option value="" selected>MS</option>
-                 <option value="" selected>SC</option>
-                  <option value="" selected>RS</option>
-                   <option value="" selected>Estado</option>
+            <option value="" <?= $estado === '' ? 'selected' : '' ?>>Estado (Todos)</option>
+            <?php foreach ($estadosBrasil as $sigla => $nomeEstado): ?>
+              <option value="<?= $sigla ?>" <?= $estado === $sigla ? 'selected' : '' ?>>
+                <?= htmlspecialchars($nomeEstado) ?> (<?= $sigla ?>)
+              </option>
+            <?php endforeach; ?>
           </select>
         </div>
 
-        <div class="select-group">
-          <select name="cidade">
-             <option value="" selected>Cabo Frio</option>
-              <option value="" selected>Gramado</option>
-               <option value="" selected>Belo Horizonte</option>
-                <option value="" selected>Caldas Novas</option>
-                 <option value="" selected>Imperatriz</option>
-                  <option value="" selected>Ipanema</option> 
-                  <option value="" selected>Campinas</option>
-                  <option value="" selected>Cidade</option>
-
-          </select>
-        </div>
-
-        <button type="button" class="btn-buscar">Buscar</button>
+        <button type="submit" class="buscar btn-buscar">Buscar</button>
       </form>
     </section>
 
-  
-    <section class="pets-grid">
-     
-      <div class="pet-card">
-        <img src="img/Kiko.png" alt="Kiko" class="pet-image">
-        <h3 class="pet-name">Kiko</h3>
-        <button class="btn-detalhes">Ver Detalhes</button>
-      </div>
+    <?php if ($where !== null): ?>
+      <p style="margin-bottom: 20px;">
+        <a href="adocao.php" style="color: #e67e22; font-weight: bold; text-decoration: none;">Limpar filtros</a>
+      </p>
+    <?php endif; ?>
 
-      <div class="pet-card">
-        <img src="" alt="Garfield" class="pet-image">
-       <button class="btn-detalhes">Ver Detalhes</button></div>
+    <?php if ($erro !== ''): ?>
+      <p><?= htmlspecialchars($erro) ?></p>
+    <?php elseif (empty($animais)): ?>
+      <p>Nenhum animal encontrado com os filtros selecionados.</p>
+    <?php else: ?>
+      <section class="pets-grid">
+        <?php foreach ($animais as $animal): ?>
+          <div class="pet-card">
+            <img
+              src="<?= htmlspecialchars($animal['url_imagem']) ?>"
+              alt="<?= htmlspecialchars($animal['nome_animal']) ?>"
+              class="pet-image"
+            >
+            <h3 class="pet-name"><?= htmlspecialchars($animal['nome_animal']) ?></h3>
+            <button type="button" class="btn-detalhes">Ver Detalhes</button>
+          </div>
+        <?php endforeach; ?>
+      </section>
+    <?php endif; ?>
+  </main>
 
-        
-      <div class="pet-card">
-        <img src="" alt="Canhão" class="pet-image">
-       <button class="btn-detalhes">Ver Detalhes</button></div>
-        
-        
-      <div class="pet-card">
-        <img src="" alt="Mia" class="pet-image">
-       <button class="btn-detalhes">Ver Detalhes</button></div>
-
-        
-      <div class="pet-card">
-        <img src="" alt="Pinduka" class="pet-image">
-       <button class="btn-detalhes">Ver Detalhes</button></div>
-        
-        
-      <div class="pet-card">
-        <img src="" alt="Junin" class="pet-image">
-       <button class="btn-detalhes">Ver Detalhes</button></div>
-        
-
-        
-      <div class="pet-card">
-        <img src="" alt="Kleuber" class="pet-image">
-       <button class="btn-detalhes">Ver Detalhes</button></div>
-        
-        
-      <div class="pet-card">
-        <img src="" alt="Fregola" class="pet-image">
-       <button class="btn-detalhes">Ver Detalhes</button></div>
-
-        
-      <div class="pet-card">
-        <img src="" alt="Brunim" class="pet-image">
-       <button class="btn-detalhes">Ver Detalhes</button></div>
-        
-        
-      <div class="pet-card">
-        <img src="" alt="Marieta" class="pet-image">
-       <button class="btn-detalhes">Ver Detalhes</button></div>
-        
-        
-      <div class="pet-card">
-        <img src="" alt="Mew" class="pet-image">
-       <button class="btn-detalhes">Ver Detalhes</button></div>
-        
-        
-      <div class="pet-card">
-        <img src="" alt="Itaim" class="pet-image">
-       <button class="btn-detalhes">Ver Detalhes</button></div>
-
-       </section> <!-- FECHA A SECTION pets-grid -->
-  </main> <!-- FECHA O MAIN -->
-
-
-<footer class="rodape-principal">
+  <footer class="rodape-principal">
     <div class="container-rodape">
       <!-- Logo do Rodapé -->
       <div class="coluna-logo-rodape">
-        <img src="img/PetConnectLOGO.png" alt="PetConnect Logo">
+        <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
       </div>
 
       <!-- Coluna Quero Adotar -->
       <div class="coluna-rodape">
         <h4 class="titulo-coluna-rodape">Quero Adotar</h4>
         <ul>
-          <li><a href="#">Cães</a></li>
-          <li><a href="#">Gatos</a></li>
+          <li><a href="adocao.php?especie=CACHORRO">Cães</a></li>
+          <li><a href="adocao.php?especie=GATO">Gatos</a></li>
         </ul>
       </div>
 
@@ -262,12 +277,6 @@
       </div>
     </div>
   </footer>
-  
+
 </body>
 </html>
-
-       
-        
-
-        
-        
