@@ -9,7 +9,7 @@ if (empty($idUsuario)) {
     exit;
 } 
 
-$nome_animal = "";
+$nome = "";
 $especie = "";
 $idade = "";
 $sexo = "";
@@ -25,7 +25,7 @@ $sociabilidade = "";
 $vivencia = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome_animal = is_string($_POST['nome_animal'] ?? null) ? trim($_POST['nome_animal']) : null;
+    $nome = is_string($_POST['nome'] ?? null) ? trim($_POST['nome']) : null;
     $especie = is_string($_POST['especie'] ?? null) ? trim($_POST['especie']) : null;
     $idade = is_string($_POST['idade'] ?? null) ? trim($_POST['idade']) : null;
     $sexo = is_string($_POST['sexo'] ?? null) ? trim($_POST['sexo']) : null;
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sociabilidade = is_string($_POST['sociabilidade'] ?? null) ? trim($_POST['sociabilidade']) : null;
     $vivencia = is_string($_POST['vivencia'] ?? null) ? trim($_POST['vivencia']) : null;
     if (
-        $nome_animal == '' || strlen($nome_animal) >= 200 || 
+        $nome == '' || strlen($nome) >= 200 || 
          $especie == '' || strlen($especie) >= 200 ||
          $idade == '' || strlen($idade) >= 10 ||
          $sexo == '' || strlen($sexo) >= 15||
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         try {
             $novoAnimal = create($pdo, 'animais', [
-                'nome_animal' => $nome_animal,
+                'nome' => $nome,
                 'especie' => $especie,
                 'idade' => $idade,
                 'sexo' => $sexo,
@@ -103,7 +103,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container-cabecalho">
     
       <div class="logo-cabecalho">
-        <img src="./img-lora/PetConnectLOGO.png" alt="PetConnect Logo">
+         <a href="index.php">
+         <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
+        </a> 
       </div>
 
     
@@ -267,7 +269,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container-rodape">
       
       <div class="coluna-logo-rodape">
-        <img src="./img-lora/PetConnectLOGO.png" alt="PetConnect Logo">
+         <a href="index.php">
+          <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
+        </a> 
       </div>
 
       

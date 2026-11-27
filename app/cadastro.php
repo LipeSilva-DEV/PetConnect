@@ -73,7 +73,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container-cabecalho">
       <!-- Logo PetConnect -->
       <div class="logo-cabecalho">
-        <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
+       <a href="index.php">
+         <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
+      </a> 
       </div>
 
       <!-- Barra de Pesquisa -->
@@ -190,8 +192,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <footer class="rodape-principal">
     <div class="container-rodape">
       <!-- Logo do Rodapé -->
-      <div class="coluna-logo-rodape">
-        <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
+      <div class="logo-cabecalho">
+       <a href="index.php"> 
+        <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo"> 
+      </a> 
       </div>
 
       <!-- Coluna Quero Adotar -->
