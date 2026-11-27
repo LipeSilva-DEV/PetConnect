@@ -103,7 +103,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container-cabecalho">
     
       <div class="logo-cabecalho">
-        <img src="./img-lora/PetConnectLOGO.png" alt="PetConnect Logo">
+         <a href="index.php">
+         <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
+        </a> 
       </div>
 
     
@@ -267,7 +269,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container-rodape">
       
       <div class="coluna-logo-rodape">
-        <img src="./img-lora/PetConnectLOGO.png" alt="PetConnect Logo">
+         <a href="index.php">
+          <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
+        </a> 
       </div>
 
       
