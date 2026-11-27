@@ -77,7 +77,7 @@ VALUES
  'Pode conviver com outros animais mediante adaptacao.',
  'Acostumado a passeios, treinamentos e ambientes externos.',
  'DISPONIVEL',
- 'https://example.com/imagens/max.jpg'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/IMG/Pasto%20Alem%C3%A3o.jpg'),
 
 (7, 'Mel', 'CACHORRO', 6, 'FEMEA', 'PEQUENO',
  'Salvador', 'BA', 'Poodle',
@@ -87,7 +87,7 @@ VALUES
  'Convive bem com criancas, adultos e outros animais.',
  'Acostumada a morar em casa e permanecer em ambientes internos.',
  'ADOTADO',
- 'https://example.com/imagens/mel.jpg'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/IMG/Poodle.png'),
 
 (8, 'Nina', 'GATO', 1, 'FEMEA', 'PEQUENO',
  'Florianopolis', 'SC', 'Maine Coon',
@@ -107,7 +107,7 @@ VALUES
  'Aceita contato humano gradual e ambientes tranquilos.',
  'Acostumado a viver em espaco protegido e adaptado para coelhos.',
  'DISPONIVEL',
- 'https://example.com/imagens/pingo.jpg'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/IMG/Coelho%20Mini%20Lo%C2%B4p.jpg'),
 
 (10, 'Rex', 'CACHORRO', 4, 'MACHO', 'MEDIO',
  'Goiania', 'GO', 'Golden Retriever',
