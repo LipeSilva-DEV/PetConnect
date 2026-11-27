@@ -37,7 +37,7 @@ VALUES
  'Convive bem com pessoas e outros cachorros.',
  'Acostumado a passeios diarios e ambientes com bastante espaco.',
  'DISPONIVEL',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/IMG/Tuf%C3%A3o.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/IMG/Tuf%C3%A3o.png'),
 
 (2, 'Mimi', 'GATO', 2, 'FEMEA', 'PEQUENO',
  'Curitiba', 'PR', 'Siames',
@@ -47,7 +47,7 @@ VALUES
  'Convive bem com adultos e outros gatos.',
  'Acostumada a viver dentro de casa e utilizar caixa de areia.',
  'DISPONIVEL',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/IMG/Didi.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/IMG/Didi.png'),
 
 (3, 'Bob', 'CACHORRO', 1, 'MACHO', 'MEDIO',
  'Rio de Janeiro', 'RJ', 'SRD',
@@ -57,7 +57,7 @@ VALUES
  'Gosta de pessoas, criancas e outros animais.',
  'Acostumado a ambientes familiares e atividades recreativas.',
  'DISPONIVEL',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/IMG/Rabanero.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/IMG/Rabanero.png'),
 
 (4, 'Luna', 'GATO', 4, 'FEMEA', 'PEQUENO',
  'Belo Horizonte', 'MG', 'Persa',
@@ -67,7 +67,7 @@ VALUES
  'Convive bem com pessoas e prefere ambientes tranquilos.',
  'Acostumada a morar em apartamentos e ambientes internos.',
  'EM_PROCESSO',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/IMG/Mantov%C3%A3o.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/IMG/Mantov%C3%A3o.png'),
 
 (5, 'Max', 'CACHORRO', 5, 'MACHO', 'GRANDE',
  'Porto Alegre', 'RS', 'Pastor Alemao',
@@ -97,7 +97,7 @@ VALUES
  'Apresenta boa convivencia com outros gatos.',
  'Acostumada a ambientes internos e brinquedos interativos.',
  'DISPONIVEL',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/gato2.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/gato2.png'),
 
 (9, 'Pingo', 'OUTRO', 2, 'MACHO', 'PEQUENO',
  'Recife', 'PE', 'Coelho Mini Lop',
@@ -117,7 +117,7 @@ VALUES
  'Convive muito bem com criancas e outros cachorros.',
  'Acostumado a passeios, brincadeiras e convivio familiar.',
  'EM_PROCESSO',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/cachorro3.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/cachorro3.png'),
 
 (11, 'Amora', 'GATO', 3, 'FEMEA', 'PEQUENO',
  'Campinas', 'SP', 'SRD',
@@ -127,7 +127,7 @@ VALUES
  'Convive bem com adultos e outros gatos.',
  'Acostumada a ambientes internos, arranhadores e caixa de areia.',
  'DISPONIVEL',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/gato4.png');
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/gato4.png');
 
 -- =========================================
 -- 3. TABELA: SOLICITACOES_ADOCAO
@@ -175,61 +175,53 @@ INSERT INTO produtos
 (nome, categoria, preco, estoque, especie_indicada, url_imagem)
 VALUES
 
--- =====================================
--- ALIMENTOS (6 REGISTROS)
--- =====================================
-
 ('Petisco para Gatos Sabor Salmao',
  'ALIMENTO', 18.90, 50, 'GATO',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/PetCat%20-%20Salm%C3%A3o.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/PetCat%20-%20Salm%C3%A3o.png'),
 
 ('Petisco para Cachorros Sabor Frango',
  'ALIMENTO', 16.90, 60, 'CACHORRO',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/Bifinho-%20Frango.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/Bifinho-%20Frango.png'),
 
 ('Petisco para Cachorros Sabor Carne',
  'ALIMENTO', 17.90, 45, 'CACHORRO',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/Bifinho-Carne.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/Bifinho-Carne.png'),
 
 ('Petisco para Cachorros Original',
  'ALIMENTO', 14.90, 70, 'CACHORRO',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/PetBiscoito.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/PetBiscoito.png'),
 
 ('Petisco para Gatos Sabor Frango',
  'ALIMENTO', 19.90, 40, 'GATO',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/PetCat%20-%20Salm%C3%A3o.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/PetCat%20-%20Salm%C3%A3o.png'),
 
 ('Petisco para Gatos Sabor Carne',
  'ALIMENTO', 20.90, 35, 'GATO',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/PetCat-Carne.png'),
-
--- =====================================
--- PRODUTOS (6 REGISTROS)
--- =====================================
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/PetCat-Carne.png'),
 
 ('Cama para Gatos',
  'PRODUTO', 89.90, 20, 'GATO',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/CamaCat.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/CamaCat.png'),
 
 ('Cama para Cachorros',
  'PRODUTO', 129.90, 25, 'CACHORRO',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/CamaDog.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/CamaDog.png'),
 
 ('Coleira de Couro',
  'PRODUTO', 49.90, 30, 'CACHORRO',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/Coleira%20couro.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/Coleira%20couro.png'),
 
 ('Coleira Guizo',
  'PRODUTO', 24.90, 40, 'GATO',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/ColeiraGuizo.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/ColeiraGuizo.png'),
 
 ('Bolsa de Transporte Cachorros',
  'PRODUTO', 159.90, 15, 'CACHORRO',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/BolsaTransporte.png'),
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/BolsaTransporte.png'),
 
 ('Bolsa de Transporte Gatos',
  'PRODUTO', 139.90, 18, 'GATO',
- 'https://github.com/LipeSilva-DEV/PetConnect/blob/main/app/img-lora/BolsaTransporteCat.png');
+ 'https://raw.githubusercontent.com/LipeSilva-DEV/PetConnect/main/app/img-lora/BolsaTransporteCat.png');
 
 
 -- =========================================
