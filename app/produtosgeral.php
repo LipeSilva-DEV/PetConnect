@@ -29,7 +29,9 @@ $buscaSegura = htmlspecialchars($busca, ENT_QUOTES, 'UTF-8');
   <header class="cabecalho-principal">
     <div class="container-cabecalho">
       <div class="logo-cabecalho">
-        <img src="./img-lora/PetConnectLOGO.png" alt="PetConnect Logo" href="index.php">
+        <a href="index.php">
+         <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
+        </a> 
       </div>
 
       <form class="barra-pesquisa" method="GET" action="produtosgeral.php">
@@ -162,7 +164,9 @@ $buscaSegura = htmlspecialchars($busca, ENT_QUOTES, 'UTF-8');
   <footer class="rodape-principal">
     <div class="container-rodape">
       <div class="coluna-logo-rodape">
-        <img src="./img-lora/PetConnectLOGO.png" alt="PetConnect Logo">
+        <a href="index.php">
+          <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
+        </a>
       </div>
 
       <div class="coluna-rodape">
