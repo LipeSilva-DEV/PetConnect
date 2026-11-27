@@ -88,7 +88,9 @@ try {
     <div class="container-cabecalho">
       <!-- Logo PetConnect -->
       <div class="logo-cabecalho">
-        <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
+       <a href="index.php">
+         <img src="./IMG/PetConnect (1).png" alt="PetConnect Logo">
+      </a> 
       </div>
 
       <!-- Barra de Pesquisa -->
