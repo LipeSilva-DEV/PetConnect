@@ -236,6 +236,10 @@ body {
   cursor: pointer;
 }
 
+main{
+  flex: 1;
+  padding-bottom: 60px;
+}
 
 .grade-produtos {
   flex: 1;                

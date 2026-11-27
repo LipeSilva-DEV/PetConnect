@@ -164,6 +164,10 @@ body {
   display: block;
 }
 
+main{
+  flex: 1;
+  padding-bottom: 60px;
+}
 
 .container-loja {
   max-width: 1200px;      
